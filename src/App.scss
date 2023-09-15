@@ -1,101 +1,13 @@
 .app {
   margin: 0 auto;
-  /* border-radius: 30px; */
-  /* max-width: 1920px; */
-  padding: 100px 0;
-  max-width: 100vw;
+  max-width: 1920px;
+  // padding: 100px 0;
+  // max-width: 100vw;
   height: 100vh;
   /* height: 100%; */
   /* width: 100%; */
-  background-image: url('./images/bg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  // background-image: url('./images/bg.jpg');
+ 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.search {
-  max-width: 640px;
-  max-height: 300px;
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
-  margin: 0 auto;
-  background-color: #1b191980;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  &__title {
-    margin: 0 auto 20px;
-    font-size: 40px;
-    font-weight: 900;
-    color: bisque;
-  }
-
-  &__form {
-    width: 70%;
-  }
-
-  &__field {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  &__input {
-    width: 100%;
-    height: 30px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 5px;
-    background-color: bisque;
-    padding: 0 30px 0 5px;
-    box-sizing: border-box;
-    color: black;
-    font-weight: normal;
-    font-size: 18px;
-  }
-  &__btn {
-    position: absolute;
-    right: 0px;
-    top: 0;
-    width: 30px;
-    height: 30px;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 5px;
-    background-color: transparent;
-    cursor: pointer;
-  }
-   &__params {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 80%;
-    margin: 0 auto;
-    // justify-content: space-between;
-   }
-   &__categories {
-    display: flex;
-    &-title {
-      color: bisque;
-      font-size: 20px;
-      width: 200px;
-      margin: 0;
-      padding: 0;
-      font-weight: 600;
-      margin-right: 10px;
-      
-    }
-    &-list {
-      width: 100%;
-      font-size: 18px;
-      color: black;
-      background-color: bisque;
-      border-radius: 5px;
-    }
-   }
-}

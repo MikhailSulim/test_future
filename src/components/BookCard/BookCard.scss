@@ -1,0 +1,39 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 400px;
+  border: 1px solid #000;
+  background-color: bisque;
+  border-radius: 5px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 5px;
+
+  &__img {
+    width: 200px;
+    object-fit: contain;
+    
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+  }
+  &__category {
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+  &__authors {
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+
+
+}
