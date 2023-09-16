@@ -1,27 +1,16 @@
-import BookCard from '../BookCard/BookCard';
 import './ResultSection.scss';
+import BookCard from '../BookCard/BookCard';
+import { useSelector } from 'react-redux';
 
 function ResultSection() {
+  const books = useSelector(state => state.books);
+
   return (
     <section className="results">
-      <h2 className="results__count">Found 555 books</h2>
+      <h2 className="results__count">{`Found ${books.totalItems} books`}</h2>
       <div className="results__container">
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
-        <BookCard/>
+        {books.totalItems && books.items.map(book => (<BookCard book={book} key={book.id} />))}
+
       </div>
     </section>
   );
