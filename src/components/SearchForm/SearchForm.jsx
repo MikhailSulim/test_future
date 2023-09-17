@@ -1,7 +1,8 @@
 import './SearchForm.scss';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { searchBooks } from '../../redux/bookSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useCallback, useEffect, useState } from 'react';
+import { clearState, searchBooks } from '../../redux/bookSlice';
+
 
 function SearchForm() {
 
@@ -10,10 +11,19 @@ function SearchForm() {
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState('relevance');
 
+  const startIndex = useSelector(state => state.books.startIndex);
+
+  useEffect(() => {
+    dispatch(searchBooks({ searchQuery, category, sort, startIndex }));
+  }, [startIndex]);
+
   const handleSearch = (e) => {
     e.preventDefault();
-    dispatch(searchBooks({ searchQuery, sort }));
-  }
+    dispatch(clearState());
+    dispatch(searchBooks({ searchQuery, category, sort, startIndex }));
+
+  };
+
 
   return (
     <form className="search-form" onSubmit={handleSearch}>

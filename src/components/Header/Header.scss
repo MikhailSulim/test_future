@@ -17,3 +17,9 @@
     text-shadow: 2px 3px rgba(243, 241, 241, 0.496);
   }
 }
+
+@media screen and (max-width: 500px) {
+  .header__title {
+    font-size: 32px;
+  }
+}

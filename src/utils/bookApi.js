@@ -1,20 +1,20 @@
 import axios from 'axios';
+import { API_KEY, BOOK_API_URL, BOOKS_QUERY_QUANTITY } from './constants';
 
-const API_KEY = 'AIzaSyBmBFBz52Du9oMBq9Sahror7nII57IN-v0';
+export const fetchBooks = async (searchQuery, category, sort, startIndex) => {
+  const query =
+    category === 'all' ? searchQuery : `${searchQuery}+subject:${category}`;
 
-export const fetchBooks = async (searchQuery, sort) => {
   try {
-    const response = await axios.get(
-      'https://www.googleapis.com/books/v1/volumes',
-      {
-        params: {
-          q: searchQuery,
-          orderBy: sort,
-          maxResults: 30,
-          key: API_KEY,
-        },
-      }
-    );
+    const response = await axios.get(BOOK_API_URL, {
+      params: {
+        q: query,
+        orderBy: sort,
+        startIndex,
+        maxResults: BOOKS_QUERY_QUANTITY,
+        key: API_KEY,
+      },
+    });
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.error.message);
