@@ -10,10 +10,13 @@ function ResultSection() {
     <section className="results">
       {books.isLoading
         ? <Preloader />
-        : <><h2 className="results__count">{`Found ${books.totalItems} books`}</h2>
+        : <>
+          <h2 className="results__count">{`Found ${books.totalItems} books`}</h2>
           <div className="results__container">
-            {books.totalItems && books.items.map(book => (<BookCard book={book} key={book.id} />))}
-          </div></>}
+            {books.items.map(book => (<BookCard book={book} key={book.id} />))}
+          </div>
+        </>
+      }
     </section>
   );
 }
