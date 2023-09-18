@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 function LoadMoreBtn() {
   const dispatch = useDispatch();
 
-
   const handleLoadMoreBooks = () => {
     dispatch(loadMoreBooks());
   };

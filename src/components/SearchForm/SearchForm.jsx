@@ -1,6 +1,6 @@
 import './SearchForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { clearState, searchBooks } from '../../redux/bookSlice';
 
 

@@ -1,9 +1,11 @@
 import './Popup.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { closePopup } from './../../redux/popupSlice.js';
+import { useEffect, useRef } from 'react';
 
 function Popup() {
   const dispatch = useDispatch();
+  const popupRef = useRef();
 
   const popup = useSelector(state => state.popup);
   const isOpen = popup.isOpen;
@@ -14,9 +16,33 @@ function Popup() {
     dispatch(closePopup());
   }
 
+  useEffect(() => {
+    const handleEscKey = (event) => {
+      if (event.keyCode === 27) {
+        handleClose();
+      }
+    };
+
+    const handleClickOverlay = (event) => {
+      if (event.target === popupRef.current) {
+        handleClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscKey);
+      document.addEventListener('mousedown', handleClickOverlay);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+      document.removeEventListener('mousedown', handleClickOverlay);
+    };
+  }, [isOpen]);
+
   return (
-    (<div className={`popup ${isOpen ? 'popup_is-opened' : ''}`}>
-      <div className="popup__container">
+    (<div className={`popup ${isOpen ? 'popup_is-opened' : ''}`} ref={popupRef}>
+      <div className="popup__container" >
         <button type='button ' className='popup__close-btn' onClick={handleClose}>&#10006;</button>
         <div className='popup__content'>
           <div className='popup__column'>
