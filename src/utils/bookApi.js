@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_KEY, BOOK_API_URL, BOOKS_QUERY_QUANTITY } from './constants';
+import { BOOK_API_URL, BOOKS_QUERY_QUANTITY } from './constants';
 
 export const fetchBooks = async (searchQuery, category, sort, startIndex) => {
   const query =
@@ -12,7 +12,7 @@ export const fetchBooks = async (searchQuery, category, sort, startIndex) => {
         orderBy: sort,
         startIndex,
         maxResults: BOOKS_QUERY_QUANTITY,
-        key: API_KEY,
+        key: process.env.API_KEY,
       },
     });
     return response.data;
